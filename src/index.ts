@@ -2,7 +2,6 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
-import { IMarkdownViewerTracker } from '@jupyterlab/markdownviewer';
 
 import { IEditorServices } from '@jupyterlab/codeeditor';
 
@@ -59,11 +58,9 @@ const mimeRendererPlugin: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-myst:mime-renderer',
   requires: [IRenderMimeRegistry],
   autoStart: true,
-  optional: [IMarkdownViewerTracker],
   activate: (
     app: JupyterFrontEnd,
     registry: IRenderMimeRegistry,
-    tracker?: IMarkdownViewerTracker
   ) => {
     console.log('Using jupyterlab-myst:mime-renderer');
     // Add the MyST markdown renderer factory.
